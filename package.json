@@ -1,7 +1,7 @@
 {
     "name": "com.tanitaka-tech.optional-serialize-field",
     "displayName": "Optional Serialize Field",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "unity": "2022.3",
     "author": "tanitaka-tech",
     "description": "Optional Serialize Field",
