@@ -1,10 +1,13 @@
 {
-    "name": "OptionalSerializeField",
+    "name": "OptionalSerializeField.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:49818357e697641afb75d2f8acaf1861"
+        "GUID:49818357e697641afb75d2f8acaf1861",
+        "GUID:d48ed075f5f754caca8a6cedae18707f"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
