@@ -15,9 +15,6 @@ namespace TanitakaTech.OptionalSerializeField
     [PublicAPI]
     public static class OptionalSerializeFieldSettingsManager
     {
-        private static ReorderableList _ignoreNamespacesList;
-        private static ReorderableList _ignoreAssemblyNameList;
-        
         public class ProjectSetting<T> : UserSetting<T>
         {
             internal ProjectSetting(string key, T value) : base(Settings, key, value, SettingsScope.Project)
@@ -81,7 +78,7 @@ namespace TanitakaTech.OptionalSerializeField
             [UserSettingBlock(CategoryName)]
             private static void Draw(string searchContext)
             {
-                _ignoreNamespacesList = DrawReorderableList(
+                var ignoreNamespacesList = DrawReorderableList(
                     IgnoreNameSpacesSetting.value, 
                     (rect, index) => IgnoreNameSpacesSetting.value[index] = EditorGUI.TextField(rect, IgnoreNameSpacesSetting.value[index]), 
                     () => IgnoreNameSpacesSetting.ApplyModifiedProperties());
@@ -101,9 +98,12 @@ namespace TanitakaTech.OptionalSerializeField
             [UserSettingBlock(CategoryName)]
             private static void Draw(string searchContext)
             {
-                _ignoreAssemblyNameList = DrawReorderableList(
+                var ignoreAssemblyNameList = DrawReorderableList(
                     IgnoreAssembliesSetting.value, 
-                    (rect, index) => IgnoreAssembliesSetting.value[index] = EditorGUI.TextField(rect, IgnoreAssembliesSetting.value[index]), 
+                    (rect, index) =>
+                    {
+                        IgnoreAssembliesSetting.value[index] = EditorGUI.TextField(rect, IgnoreAssembliesSetting.value[index]);
+                    }, 
                     () => IgnoreAssembliesSetting.ApplyModifiedProperties());
             }
         }
@@ -116,6 +116,7 @@ namespace TanitakaTech.OptionalSerializeField
                 drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
                 {
                     onDrawElementCallback?.Invoke(rect, index);
+                    onModifyListCallback?.Invoke();
                 },
                 onAddCallback = (list) =>
                 {
