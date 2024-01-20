@@ -67,16 +67,14 @@ namespace TanitakaTech.OptionalSerializeField
 		private static void OnChange( PlayModeStateChange state )
 		{
 			if ( state != PlayModeStateChange.ExitingEditMode ) return;
-
-			var settings = OptionalSerializeFieldSettings.LoadFromEditorPrefs();
-
-			if ( !settings.IsEnable ) return;
+            
+			if ( !OptionalSerializeFieldSettings.IsEnable ) return;
 
 			var list = Validate().ToArray();
 
 			if ( list.Length <= 0 ) return;
 
-			var logFormat = settings.LogFormat;
+			var logFormat = OptionalSerializeFieldSettings.LogFormat;
 
 			foreach ( var n in list )
 			{
@@ -97,7 +95,6 @@ namespace TanitakaTech.OptionalSerializeField
 		/// </summary>
 		private static IEnumerable<NullData> Validate()
 		{
-            var settings = OptionalSerializeFieldSettings.LoadFromEditorPrefs();
 			var gameObjects = Resources
 					.FindObjectsOfTypeAll<GameObject>()
 					.Where( c => c.scene.isLoaded )
@@ -117,13 +114,13 @@ namespace TanitakaTech.OptionalSerializeField
 
                     if (type.Namespace != null)
                     {
-                        if (settings.IgnoreNamespaces.Any(n => (type.Namespace.StartsWith(n))))
+                        if (OptionalSerializeFieldSettings.IgnoreNamespaces.Any(n => (type.Namespace.StartsWith(n))))
                         {
                             continue;
                         }
                     }
                     var assemblyName = type.Assembly.GetName().Name;
-                    if (settings.IgnoreAssemblyNames.Any(n => (assemblyName == n)))
+                    if (OptionalSerializeFieldSettings.IgnoreAssemblyNames.Any(n => (assemblyName == n)))
                     {
                         continue;
                     }

@@ -1,7 +1,9 @@
 {
     "name": "OptionalSerializeField",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:49818357e697641afb75d2f8acaf1861"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
