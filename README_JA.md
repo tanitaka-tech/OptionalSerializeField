@@ -1,4 +1,4 @@
-[![openupm](https://img.shields.io/npm/v/com.tanitaka.optional-serialize-field?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.tanitaka.state-variable/)
+[![openupm](https://img.shields.io/npm/v/com.tanitaka-tech.optional-serialize-field?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.tanitaka-tech.optional-serialize-field/)
 ![license](https://img.shields.io/github/license/tanitaka-tech/OptionalSerializeField)
 
 **Docs** ([English](README.md), [日本語](README_JA.md))
@@ -24,9 +24,9 @@ Unityで`SerializeField`がシーン実行時に`None`の場合、エラーを�
 1. Enter the following:
     - https://github.com/tanitaka-tech/OptionalSerializeField.git
 
-### ~~Install via OpenUPM~~ (not yet)
+### Install via OpenUPM
 ```sh
-openupm add com.tanitaka-optional-serialize-field
+openupm add com.tanitaka-tech.optional-serialize-field
 ```
 
 ## special thanks 🙏
