@@ -1,11 +1,13 @@
 [![openupm](https://img.shields.io/npm/v/com.tanitaka.optional-serialize-field?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.tanitaka.state-variable/)
 ![license](https://img.shields.io/github/license/tanitaka-tech/OptionalSerializeField)
 
+**Docs** ([English](README.md), [日本語](README_JA.md))
+
 In Unity, when `SerializeField` is `None` during scene execution, it will now output an error.
 
 This prevents `SerializeField` from unintentionally becoming `None`.
 
-## Noneを許容する方法
+## How to allow None
 - Adding the `Optional` attribute will exclude that `SerializeField` from error checking.
 ```
 [SerializeField, Optional] SomeBehaviour _someBehaviour;
